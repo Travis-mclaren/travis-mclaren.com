@@ -1,0 +1,20 @@
+@keyframes hoverChange {
+  to {
+    filter: brightness(150%);
+  }
+}
+
+.tile {
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4em;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: white;
+
+  &:hover {
+    animation: 1.5s hoverChange 1 forwards;
+  }
+}
