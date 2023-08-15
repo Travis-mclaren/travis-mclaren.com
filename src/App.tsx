@@ -1,13 +1,17 @@
 import React from 'react';
 import './App.scss';
-import Header from './Header';
-import Home from './Home';
+import Navigation from './Navigation';
+import Content from './Content';
 
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <Home />
+    <div className="app">
+      <div className="fade-top"></div>
+      <div className="appWrapper">
+        <Navigation />
+        <Content />
+      </div>
+      <div className="fade-bottom"></div>
     </div>
   );
 }
