@@ -33,6 +33,19 @@
       margin-bottom: 40px;
       padding: 0;
       line-height: 30px;
+
+      li {
+        text-decoration: none;
+
+        a {
+          text-decoration: none;
+          color: black;
+        }
+
+        &:hover {
+          font-weight: bold;
+        }
+      }
     }
   }
 }

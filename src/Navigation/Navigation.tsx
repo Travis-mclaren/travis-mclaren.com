@@ -2,31 +2,79 @@ import React from "react";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
   Link,
 } from "react-router-dom";
 import './Navigation.scss';
 
+const MainNavigation = () => {
+  return (
+    <>
+      <h2>Navigation</h2>
+      <ul>
+        <li><Link to="/">Home .</Link></li>
+        <li><Link to="/about">About .</Link></li>
+        <li><Link to="/resume">Resume .</Link></li>
+        <li><a href="https://www.linkedin.com/in/travis-mclaren/" target="_blank">LinkedIn .</a></li>
+      </ul>
+    </>
+  )
+}
+
+const ProjectNavigation = () => {
+  return (
+    <>
+    <h2>Top Projects</h2>
+    <ul>
+      <li><Link to="/project1">Project 1 .</Link></li>
+      <li><Link to="/project2">Project 2 .</Link></li>
+      <li><Link to="/project3">Project 3 .</Link></li>
+    </ul>
+    </>
+  )
+}
+
+const NavLayout = () => (
+  <>
+    <nav className="navMenu">
+      <MainNavigation />
+      <ProjectNavigation />
+    </nav>
+  </>
+)
+
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: (
-      <div>
-        <h1>Hello world</h1>
-        <Link to="about">About</Link>
-      </div>
-    )
-  },
-  {
-    path: "about",
-    element: <div>About</div>,
+    element: <NavLayout />,
+    children: [
+      {
+        path: "/"
+      },
+      {
+        path: "/about"
+      },
+      {
+        path: "/resume"
+      },
+      {
+        path: "https://www.linkedin.com/in/travis-mclaren/"
+      },
+      {
+        path: "/project1"
+      },
+      {
+        path: "project2"
+      },
+      {
+        path: "project3"
+      }
+    ]
   }
 ])
+
 
 const Navigation = () => {
   return (
     <header className="nav">
-      <RouterProvider router={router} />
       <hgroup className="navHeading">
         <h1>Travis <br/> McLaren .</h1>
         <p>
@@ -35,19 +83,7 @@ const Navigation = () => {
           some new technologies.  
         </p>
       </hgroup>
-      <nav className="navMenu">
-        <h2>Navigation</h2>
-        <ul>
-          <li>About .</li>
-          <li>Resume .</li>
-          <li>LinkedIn .</li>
-        </ul>
-        <h2>Top Projects</h2>
-        <ul>
-          <li>Project 1 .</li>
-          <li>Project 2 .</li>
-        </ul>
-      </nav>
+      <RouterProvider router={router} />
     </header>
   )
 }
